@@ -1,2 +1,2 @@
 # ReactNative
-Practice Sample React App
+This project is to help learn React Native for my future apps

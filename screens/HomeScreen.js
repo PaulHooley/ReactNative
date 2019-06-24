@@ -8,6 +8,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Button
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
@@ -18,7 +19,13 @@ export default function HomeScreen() {
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
-        <View style={styles.welcomeContainer}>
+
+          <View style={styles.welcomeContainer}>
+            <MonoText style={styles.welcomeContainer}>
+              Welcome to this sample Application Hope you hate it
+            </MonoText>
+          </View>
+        {/* <View style={styles.welcomeContainer}>
           <Image
             source={
               __DEV__
@@ -27,12 +34,45 @@ export default function HomeScreen() {
             }
             style={styles.welcomeImage}
           />
+        </View> */}
+
+        <View style={styles.trashButton}>
+          <TouchableOpacity onPress={favPress}>
+            <Image
+              source={
+                __DEV__
+                  ? require('../assets/images/favourites.png')
+                  : require('../assets/images/favourites.png')
+              }
+              style={styles.favImage}
+            />
+          </TouchableOpacity>
+
         </View>
 
-        <View style={styles.getStartedContainer}>
+        <View>
+          <TouchableOpacity onPress={helloWorld}>
+            <Image
+              source={
+                __DEV__
+                  ? require('../assets/images/trash.png')
+                  : require('../assets/images/trash.png')
+              }
+              style={styles.trashImage}
+            />
+          </TouchableOpacity>
+
+        </View>
+{/* 
+        <Button
+          title="Press"
+          color="#841584"
+          accessibilityLabel="Press here for incredible results"
+        /> */}
+        {/* <View style={styles.getStartedContainer}>
           <DevelopmentModeNotice />
 
-          <Text style={styles.getStartedText}>Sample Text.png</Text>
+          <Text style={styles.getStartedText}>No pls</Text>
 
           <View
             style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
@@ -42,20 +82,20 @@ export default function HomeScreen() {
           <Text style={styles.getStartedText}>
             Despacito
           </Text>
-        </View>
-
+        </View> */}
+{/* 
         <View style={styles.helpContainer}>
           <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
             <Text style={styles.helpLinkText}>
               Help, it didn’t automatically reload!
             </Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
       </ScrollView>
 
       <View style={styles.tabBarInfoContainer}>
         <Text style={styles.tabBarInfoText}>
-          This is a tab bar. You can edit it in:
+          This is abar. You can edit it in:
         </Text>
 
         <View
@@ -108,14 +148,39 @@ function handleHelpPress() {
   );
 }
 
+function helloWorld(){
+  // alert('Hello World!')
+  WebBrowser.openBrowserAsync(
+    'https://i.kym-cdn.com/entries/icons/mobile/000/017/414/sampletext.jpg'
+  );
+}
+
+function favPress(){
+  alert('This is fine')
+}
+
 const styles = StyleSheet.create({
+  favImage: {
+    marginLeft: 200,
+    flex: 1,  
+    width: 125,
+    height: 125,
+    resizeMode: 'contain'
+  },
+  trashImage: {
+    marginLeft: 50,
+    flex: 1,
+    width: 125,
+    height: 125,
+    resizeMode: 'contain'
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
   },
   developmentModeText: {
     marginBottom: 20,
-    color: 'rgba(0,0,0,0.4)',
+    color: '#fff',
     fontSize: 14,
     lineHeight: 19,
     textAlign: 'center',
@@ -127,6 +192,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 10,
     marginBottom: 20,
+    fontSize: 20
   },
   welcomeImage: {
     width: 100,
@@ -152,7 +218,7 @@ const styles = StyleSheet.create({
   },
   getStartedText: {
     fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
+    color: '#f306de',
     lineHeight: 24,
     textAlign: 'center',
   },
@@ -163,7 +229,7 @@ const styles = StyleSheet.create({
     right: 0,
     ...Platform.select({
       ios: {
-        shadowColor: 'black',
+        shadowColor: 'white',
         shadowOffset: { width: 0, height: -3 },
         shadowOpacity: 0.1,
         shadowRadius: 3,
