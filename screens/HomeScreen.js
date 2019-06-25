@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
-
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
@@ -161,18 +161,15 @@ function favPress(){
 
 const styles = StyleSheet.create({
   favImage: {
-    marginLeft: 200,
-    flex: 1,  
-    width: 125,
-    height: 125,
-    resizeMode: 'contain'
+    width: wp('40%'),
+    resizeMode: 'contain',
+    borderRadius: 8
+
   },
   trashImage: {
-    marginLeft: 50,
-    flex: 1,
-    width: 125,
-    height: 125,
-    resizeMode: 'contain'
+    width: wp('100%'),
+    resizeMode: 'contain',
+    borderRadius: 8
   },
   container: {
     flex: 1,
@@ -243,7 +240,7 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
   },
   tabBarInfoText: {
-    fontSize: 17,
+    fontSize: wp('3.45%'),
     color: 'rgba(96,100,109, 1)',
     textAlign: 'center',
   },
