@@ -252,7 +252,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   helpLink: {
-    paddingVertical: 20,
+    paddingVertical: 15,
   },
   helpLinkText: {
     fontSize: 14,
