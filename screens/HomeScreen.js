@@ -25,18 +25,9 @@ export default function HomeScreen() {
               Welcome to this sample Application Hope you hate it
             </MonoText>
           </View>
-        {/* <View style={styles.welcomeContainer}>
-          <Image
-            source={
-              __DEV__
-                ? require('../assets/images/robot-dev.png')
-                : require('../assets/images/robot-prod.png')
-            }
-            style={styles.welcomeImage}
-          />
-        </View> */}
 
-        <View style={styles.trashButton}>
+          <View style={{flexDirection: 'row'}}>
+        <View>
           <TouchableOpacity onPress={favPress}>
             <Image
               source={
@@ -47,9 +38,7 @@ export default function HomeScreen() {
               style={styles.favImage}
             />
           </TouchableOpacity>
-
         </View>
-
         <View>
           <TouchableOpacity onPress={helloWorld}>
             <Image
@@ -62,7 +51,36 @@ export default function HomeScreen() {
             />
           </TouchableOpacity>
 
+        </View> 
+      </View>
+      <View style={{flexDirection: 'row'}}>
+        <View>
+          <TouchableOpacity onPress={favPress}>
+            <Image
+              source={
+                __DEV__
+                  ? require('../assets/images/favourites.png')
+                  : require('../assets/images/favourites.png')
+              }
+              style={styles.favImage}
+            />
+          </TouchableOpacity>
         </View>
+        <View>
+          <TouchableOpacity onPress={helloWorld}>
+            <Image
+              source={
+                __DEV__
+                  ? require('../assets/images/trash.png')
+                  : require('../assets/images/trash.png')
+              }
+              style={styles.trashImage}
+            />
+          </TouchableOpacity>
+
+        </View> 
+      </View>
+       
 {/* 
         <Button
           title="Press"
@@ -162,12 +180,15 @@ function favPress(){
 const styles = StyleSheet.create({
   favImage: {
     width: wp('40%'),
+    marginLeft: wp('5%'),
     resizeMode: 'contain',
-    borderRadius: 8
+    borderRadius: 8,
+    
 
   },
   trashImage: {
-    width: wp('100%'),
+    width: wp('40%'),
+    marginLeft: wp('10%'),
     resizeMode: 'contain',
     borderRadius: 8
   },
