@@ -13,6 +13,7 @@ import {
 
 import { MonoText } from '../components/StyledText';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import WeeklyMealsScren from './WeeklyMealsScreen';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
@@ -27,33 +28,6 @@ export default function HomeScreen() {
           </View>
 
           <View style={{flexDirection: 'row'}}>
-        <View>
-          <TouchableOpacity onPress={favPress}>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/favourites.png')
-                  : require('../assets/images/favourites.png')
-              }
-              style={styles.favImage}
-            />
-          </TouchableOpacity>
-        </View>
-        <View>
-          <TouchableOpacity onPress={helloWorld}>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/trash.png')
-                  : require('../assets/images/trash.png')
-              }
-              style={styles.trashImage}
-            />
-          </TouchableOpacity>
-
-        </View> 
-      </View>
-      <View style={{flexDirection: 'row'}}>
         <View>
           <TouchableOpacity onPress={favPress}>
             <Image
@@ -168,9 +142,11 @@ function handleHelpPress() {
 
 function helloWorld(){
   // alert('Hello World!')
-  WebBrowser.openBrowserAsync(
-    'https://i.kym-cdn.com/entries/icons/mobile/000/017/414/sampletext.jpg'
-  );
+  // WebBrowser.openBrowserAsync(
+  //   'https://i.kym-cdn.com/entries/icons/mobile/000/017/414/sampletext.jpg'
+  // );
+  var weeklyText = require("../assets/textFiles/sampleTxt.txt");
+  <WeeklyMealsScren txt={weeklyText} />
 }
 
 function favPress(){
